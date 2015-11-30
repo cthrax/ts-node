@@ -5,9 +5,10 @@ notifications:
     on_success: never
     on_failure: change
 
-before_script: npm install $TYPESCRIPT
-
-script: npm run test-ci
+script:
+  - npm run lint
+  - npm install $TYPESCRIPT
+  - npm run test-cov
 
 env:
   - TYPESCRIPT=typescript@1.6
